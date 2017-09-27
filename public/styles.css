@@ -1,0 +1,163 @@
+* {
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+}
+
+html {
+	font-size:17px;
+}
+
+h1 {
+	margin:0;
+	padding-left: 10px;
+	display:inline;
+	font-weight: normal;
+	font-size: 1.8rem;
+}
+
+p {
+	margin: 0;
+	line-height: 2rem;
+
+}
+
+.container {
+	max-width:500px;
+	background-color: #cccccc;
+	margin:auto;
+}
+
+.row {
+	width:100%;
+	overflow-x: hidden;
+	background-color: #F1F0F0;
+	display:flex;
+	flex-wrap:wrap;
+}
+
+.row:nth-child(2n) {
+	background-color:#FFF;
+}
+
+.actions {
+	position:relative;
+	width:0px;
+	height:100%;
+	display:flex;
+	text-align:center;
+	margin-right:0px;
+	transition: 0.4s;
+	line-height:2rem;
+	overflow: hidden;
+}
+
+.action-button {
+	width:30px;
+	height:100%;
+	border:0;
+	display:inline-block;
+	color: #002E26;
+	font-size: 1.1rem;
+}
+
+.action-form {
+	display:inline-block;
+	width:100%;
+}
+
+.delete {
+	background-color: #FF6138;
+}
+
+.edit {
+	background-color: #FFFF9D;
+}
+
+.done {
+	background-color: #DDFFCA !important;
+}
+
+.done-text {
+	text-decoration: line-through;
+}
+
+
+.todo {
+	display:inline-block;
+	width: 100%;
+	transition: 0.4s;
+	background: none;
+	border:0;
+	text-align: left;
+	margin: 0;
+	line-height: 2rem;
+	font-size: 0.9rem;
+	padding: 0 10px;
+	color: #002E26;
+}
+
+.todo-edit{
+	outline:2px solid #4C8250;
+}
+.todo-edit:hover {
+	outline:2px solid #4C8250;
+}
+
+.todo-form {
+	width: 100%;
+	transition: 0.4s;
+}
+
+
+.row:hover .actions {
+	left:0;
+	width:60px;
+}
+
+.row:hover .todo-form {
+	width: calc(100% - 60px);
+	transition: 0.4s;
+}
+
+#title {
+	height:3rem;
+	background-color: #4C8250;
+	color: #FFF;
+	line-height: 3rem;
+}
+#new-row {
+	display:none;
+}
+
+#new {
+	height:2rem;
+	width:100%;
+	margin:0;
+	padding-left: 10px;
+	border: 2px solid #FFF;
+	color: #002E26;
+	font-size:0.9rem;
+	transition: 0.4s;
+}
+
+#new:focus, #new:hover {
+	outline:0;
+	border: 2px solid #4C8250;
+}
+
+#plus {
+	float:right;
+	font-size:2.2rem;
+	line-height: 3rem;
+	padding: 0 15px;
+	font-weight:bold;
+	position:relative;
+}
+
+#plus i {
+	line-height: 3rem;
+}
+
+.hidden {
+	display:none !important;
+}

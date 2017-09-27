@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Darbų sąrašas</title>
+	<link href="/styles.css" type="text/css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+	<script type="text/javascript" src="/scripts/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/scripts/script.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div id="title">
+			<h1>Darbų sąrašas</h1>
+			<span id="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+		</div>
+		<form class="row" id="new-row" action="/" method="POST">
+			<input id="new" type="text" placeholder="Pridėti naują darbą" name="note">
+		</form>
+		
+<% todos.forEach(function(todo) { %>
+
+		<div class="row <% if(todo.isDone) { %> done <% } %>">
+			<div class="actions">
+				<form class="action-form" action="/<%= todo._id %>?_method=DELETE" method="POST">
+					<button class="action-button delete"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+				</form>
+				<div class="action-form edit-button">
+					<div class="action-button edit"><i class="fa fa-pencil" aria-hidden="true"></i></div>
+				</div>
+			</div>
+			<div class="todo-form">
+				<form class="showed-form" action="/done/<%= todo._id %>?_method=PUT" method="POST">  
+					<button class="todo <% if(todo.isDone) { %> done-text <% } %>"> <%= todo.note %></button>
+				</form>
+				<form class="hidden-form hidden" action="/<%= todo._id %>?_method=PUT" method="POST">
+					<input type="text" class="todo todo-edit" value="<%= todo.note %>" name="newNote">
+				</form>
+			</div>
+		</div>
+<% }) %>
+
+	</div>
+
+</body>
+</html>
